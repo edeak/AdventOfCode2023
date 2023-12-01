@@ -2,5 +2,5 @@
 
 My solutions for  challenges in Kotlin.
 
-# AdventOfCode2022
-Solutions for [AdventOfCode 2022](https://adventofcode.com/2022) in Kotlin
+# AdventOfCode2023
+Solutions for [AdventOfCode 2023](https://adventofcode.com/2023) in Kotlin
