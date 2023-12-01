@@ -34,5 +34,5 @@ fun <T> cartesianProduct(vararg lists: List<T>): List<List<T>> =
             acc.flatMap { list -> set.map { element -> list + element } }
         }
 
-fun Collection<Int>.product() = this.fold(1) { acc, i -> acc * i }
-fun <T> Collection<T>.productOf(selector: (T) -> Long) = this.fold(1L) { acc, i -> acc * selector(i) }
+fun Collection<Number>.product(): Long = this.fold(1L) { acc, i -> acc * i.toLong() }
+fun <T> Collection<T>.productOf(selector: (T) -> Long): Long = this.fold(1L) { acc, i -> acc * selector(i) }
