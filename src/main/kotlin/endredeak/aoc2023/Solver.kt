@@ -1,7 +1,6 @@
 package endredeak.aoc2023
 
 import java.io.File
-import kotlin.time.ExperimentalTime
 import kotlin.time.measureTimedValue
 
 private const val RESOURCE_PATH = "src/main/resources"
@@ -40,11 +39,10 @@ data class Solution(val name: String) {
         runPart(2, part2)
     }
 
-    @OptIn(ExperimentalTime::class)
     private fun runPart(part: Int, block: () -> Any) {
         measureTimedValue { block() }.let { (answer, time) ->
-            println("2022 $dayFormatted: $name -- part $part -- " +
-                    "(in [${time.inWholeMicroseconds} microsecs]):" +
+            println("2023 $dayFormatted: $name -- part $part -- " +
+                    "(in [${time.inWholeMicroseconds / 100.0} ms]):" +
                     " ${if (answer is Unit) "-1" else answer}")
         }
     }

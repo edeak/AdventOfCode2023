@@ -2,29 +2,18 @@ package endredeak.aoc2023
 
 fun main() {
     solve("Trebuchet?!") {
-        val digitMap = mapOf(
-            "zero" to 0,
-            "one" to 1,
-            "two" to 2,
-            "three" to 3,
-            "four" to 4,
-            "five" to 5,
-            "six" to 6,
-            "seven" to 7,
-            "eight" to 8,
-            "nine" to 9
-        )
+        val digits = listOf("zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine",)
 
         fun String.getDigits(convertText: Boolean): Int {
-            var digitized = this
+            var tmp = this
 
             if (convertText) {
-                digitMap.forEach {(k, v) ->
-                    digitized = digitized.replace(k, "$k$v$k")
-                }
+                digits.forEachIndexed { i, v -> tmp = tmp.replace(v, "$v$i$v") }
             }
 
-            return "${digitized.firstOrNull { it.isDigit() } ?: 0}${digitized.lastOrNull { it.isDigit()} ?: 0}".toInt()
+            return "${tmp.firstOrNull { it.isDigit() } }${tmp.lastOrNull { it.isDigit()} }"
+                .replace("null", "0")
+                .toInt()
         }
 
         val input = text
@@ -35,7 +24,7 @@ fun main() {
             input.sumOf { it.getDigits(false) }
         }
 
-        part2(-1) {
+        part2(53866) {
             input.sumOf { it.getDigits(true) }
         }
     }

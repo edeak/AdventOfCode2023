@@ -1,13 +1,15 @@
 package endredeak.aoc2023
 
 fun main() {
-    solve("Tuning Trouble") {
-        val input = lines[0]
+    solve("") {
+        val input = lines
 
-        fun marker(n: Int) = input.windowed(n).indexOfFirst { it.toSet().size == n } + n
+        part1(-1) {
+            -1
+        }
 
-        part1(1300) { marker(4) }
-
-        part2(3986) { marker(14) }
+        part2(-1) {
+            -1
+        }
     }
 }
