@@ -2,7 +2,7 @@ package endredeak.aoc2023
 
 fun main() {
     solve("Trebuchet?!") {
-        val digits = listOf("zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine",)
+        val digits = listOf("zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine")
 
         fun String.getDigits(convertText: Boolean): Int {
             var tmp = this
