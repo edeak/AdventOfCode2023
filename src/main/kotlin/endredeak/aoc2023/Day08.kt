@@ -2,7 +2,6 @@ package endredeak.aoc2023
 
 import endredeak.aoc2023.lib.utils.lcm
 
-
 fun main() {
     solve("Haunted Wasteland") {
         val input =
