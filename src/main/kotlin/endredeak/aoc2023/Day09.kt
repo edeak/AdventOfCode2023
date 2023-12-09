@@ -1,15 +1,13 @@
 package endredeak.aoc2023
 
 fun main() {
-    solve("") {
-        val input = lines
+    solve("Mirage Maintenance") {
+        val input = lines.map { l -> l.split(" ").map { it.toInt() } }
 
-        part1(-1) {
-            -1
-        }
+        fun List<Int>.extend(): Int = if (all { it == 0 }) 0 else (last() + zipWithNext { a, b -> b - a }.extend())
 
-        part2(-1) {
-            -1
-        }
+        part1(1995001648) { input.sumOf { it.extend() } }
+
+        part2(988) { input.sumOf { it.reversed().extend() } }
     }
 }
