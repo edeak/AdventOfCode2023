@@ -2,10 +2,9 @@ package endredeak.aoc2023
 
 import kotlin.math.absoluteValue
 
-typealias P = Pair<Int, Int>
 enum class M { N, S, W, E }
 
-operator fun P.plus(move: M): P = when (move) {
+operator fun Pair<Int, Int>.plus(move: M): Pair<Int, Int> = when (move) {
     M.N -> first - 1 to second
     M.S -> first + 1 to second
     M.W -> first to second - 1
@@ -16,10 +15,10 @@ operator fun P.plus(move: M): P = when (move) {
 // then read Jakub's solution on actually counting the _moves_ which leads to complete the circle -> brilliant!
 fun main() {
     solve("Pipe Maze") {
-        operator fun List<String>.get(pos: P): Char = getOrNull(pos.first)?.getOrNull(pos.second) ?: '.'
+        operator fun List<String>.get(pos: Pair<Int, Int>): Char = getOrNull(pos.first)?.getOrNull(pos.second) ?: '.'
 
         val input = run {
-            val start: P = lines.indices.asSequence()
+            val start: Pair<Int, Int> = lines.indices.asSequence()
                 .flatMap { row -> lines[row].indices.map { row to it } }
                 .first { pos -> lines[pos] == 'S' }
             val firstMove = when {
